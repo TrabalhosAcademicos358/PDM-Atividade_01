@@ -11,16 +11,14 @@ import ModalCustom from './src/components/ModalCustom.js';
 export default function App() {
   const [listParticipant, setListParticipant] = useState([
     "fabio abrantes", 
-    "fabio abrantes", 
-    "lorram queiroga", 
     "lorram queiroga", 
     "David gonçalves", 
-    "David gonçalves", 
-    "David gonçalves", 
-    "Neymar cai cai",
-    "Neymar cai cai",
     "Neymar cai cai",
   ]);
+
+  function createFromList(name) {
+    setListParticipant([ ...listParticipant, name ]);
+  }
 
   function deleteFromList(indexDel) {
     const newList = listParticipant.filter((item, index) => index !== indexDel);
@@ -30,7 +28,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Header />
-      <ViewCreate />
+      <ViewCreate handleCreate={createFromList} />
       <ViewParticipant list={listParticipant} handleDelete={deleteFromList} />
       <ModalCustom handleDelete={deleteFromList} />
       <StatusBar style="auto" />

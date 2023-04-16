@@ -10,7 +10,7 @@ export default function Participants({ name, index, handleDelete }) {
             <View style={styles.box}>
                 <Text style={{ fontSize: 16, color: "#fff" }}>{ name }</Text>
             </View>
-            <Button name="remove-outline" color="#E23C44" callback={handleDelete} id={index}  />
+            <Button name="remove-outline" color="#E23C44" callback={() => handleDelete(index)} />
         </View>
     )
 }
