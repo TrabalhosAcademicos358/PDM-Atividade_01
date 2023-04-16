@@ -1,10 +1,11 @@
+import { useEffect } from 'react';
 import { Text, View } from 'react-native';
 
 import { styles } from "../styles.js"
 
 import Participants from "./Participants.js"
 
-export default function ViewParticipant({ list }) {
+export default function ViewParticipant({ list, handleDelete }) {
     const element = list.length === 0? (
             <Text style={styles.paragraph}>
                 Ninguém chegou no evento ainda? 
@@ -12,9 +13,17 @@ export default function ViewParticipant({ list }) {
             </Text>
         ) : (
             <View style={{gap: 10}}>
-                {list.map(name => <Participants name={name} />)}
+                { list.map((name, index) => (
+                    <Participants 
+                        key={index.toString()} 
+                        index={index}
+                        name={name} 
+                        handleDelete={handleDelete}    
+                    />
+                )) }
             </View>
         );
+
     return (
         <View style={{ gap: 16 }}>
             <Text style={styles.titleSecondary}>Participants</Text>

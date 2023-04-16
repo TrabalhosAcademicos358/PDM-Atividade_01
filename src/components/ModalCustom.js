@@ -1,10 +1,18 @@
 import { useState } from 'react';
-import { Modal, Alert, View, Text, Pressable } from 'react-native';
+import { Modal, View, Text, Pressable } from 'react-native';
 import { styles, stylesModal } from '../styles';
 
 export default function ModalCustom() {
-    const [modalVisible, setModalVisible] = useState(true);
+    const [modalVisible, setModalVisible] = useState(false);
     const name = "Fabio Abrantes";
+
+    const colorBG = "#131016CC";
+    const [colorPage, setColorPage] = useState(colorBG);
+
+    function changeColor() {
+        const newColor = colorPage === colorBG ? "transparent" : colorBG;
+        setColorPage(newColor);
+    }
 
     return (
         <Modal
@@ -12,10 +20,10 @@ export default function ModalCustom() {
             transparent={true}
             visible={modalVisible}
             onRequestClose={() => {
-                Alert.alert('Modal has been closed.');
                 setModalVisible(!modalVisible);
+                changeColor()
             }}>
-            <View style={styles.containerCenter}>
+            <View style={[styles.containerCenter, { backgroundColor: colorPage }]}>
                 <View style={stylesModal.modalView}>
                     <View style={stylesModal.textView}>
                         <Text style={[stylesModal.text, stylesModal.textTitle]}>Remover</Text>
@@ -25,14 +33,20 @@ export default function ModalCustom() {
                     <View style={{flexDirection: "row"}}>
                         <Pressable
                             style={[styles.button, stylesModal.button, stylesModal.buttonPrimary]}
-                            onPress={() => setModalVisible(!modalVisible)}
+                            onPress={() => {
+                                setModalVisible(!modalVisible)
+                                changeColor()
+                            }}
                         >
                             <Text style={stylesModal.textButton}>Não</Text>
                         </Pressable>
 
                         <Pressable
                             style={[styles.button, stylesModal.button, stylesModal.buttonSecondary]}
-                            onPress={() => setModalVisible(!modalVisible)}
+                            onPress={() => {
+                                setModalVisible(!modalVisible)
+                                changeColor()
+                            }}
                         >
                             <Text style={stylesModal.textButton}>Sim</Text>
                         </Pressable>

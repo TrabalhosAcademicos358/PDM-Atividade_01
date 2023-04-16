@@ -99,5 +99,5 @@ export const stylesModal = StyleSheet.create({
     backgroundColor: "#F2F2F2",
     width: 270,
     borderRadius: 14,
-  },
+  }
 })
