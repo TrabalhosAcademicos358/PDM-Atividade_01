@@ -17,16 +17,14 @@ export default function App() {
     "David gonçalves", 
     "David gonçalves", 
     "David gonçalves", 
-    "David gonçalves", 
     "Neymar cai cai",
     "Neymar cai cai",
     "Neymar cai cai",
   ]);
 
   function deleteFromList(indexDel) {
-    // const newList = listParticipant.filter((item, index) => index !== indexDel);
-    listParticipant.splice(indexDel, 1)
-    setListParticipant([...listParticipant]);
+    const newList = listParticipant.filter((item, index) => index !== indexDel);
+    setListParticipant(newList);
   }
 
   return (
