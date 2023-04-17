@@ -1,4 +1,4 @@
-import { View, TextInput } from 'react-native';
+import { View, TextInput, Alert } from 'react-native';
 import { styles } from '../styles.js';
 
 import Button from "./Button.js"
@@ -16,6 +16,7 @@ export default function ViewCreate({ handleCreate }) {
                 value={name}
             />
             <Button name="add-outline" callback={() => {
+                if (name.trim() === "") return Alert.alert("Não se pode adicionar uma string vazia");
                 handleCreate(name);
                 setName("");
             }} />

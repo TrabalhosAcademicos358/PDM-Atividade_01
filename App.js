@@ -13,7 +13,6 @@ export default function App() {
     name: "",
     id: ""
   })
-  // const [name, setName] = useState("");
   const [listParticipant, setListParticipant] = useState([
     "fabio abrantes", 
     "lorram queiroga", 
@@ -38,9 +37,19 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Header />
-      <ViewCreate handleCreate={createFromList} />
-      <ViewParticipant list={listParticipant} handleModal={changeModal} /> 
-      <ModalCustom handleDelete={deleteFromList} visible={modalVisible} user={objUser} changeModal={changeModal} />
+      <ViewCreate 
+        handleCreate={createFromList} 
+      />
+      <ViewParticipant 
+        list={listParticipant} 
+        handleModal={changeModal} 
+      /> 
+      <ModalCustom 
+        handleDelete={deleteFromList} 
+        visible={modalVisible} 
+        user={objUser} 
+        changeModal={changeModal} 
+      />
     </View>
   );
 }

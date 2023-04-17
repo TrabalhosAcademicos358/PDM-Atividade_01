@@ -18,7 +18,7 @@ export default function ModalCustom({ visible, handleDelete, user, changeModal }
             visible={visible}
             onRequestClose={() => {
                 changeModal();
-                changeColor()
+                changeColor();
             }}>
             <View style={[styles.containerCenter, { backgroundColor: colorPage }]}>
                 <View style={stylesModal.modalView}>
@@ -31,8 +31,8 @@ export default function ModalCustom({ visible, handleDelete, user, changeModal }
                         <Pressable
                             style={[styles.button, stylesModal.button, stylesModal.buttonPrimary]}
                             onPress={() => {
-                                changeModal()
-                                changeColor()
+                                changeModal();
+                                changeColor();
                             }}
                         >
                             <Text style={stylesModal.textButton}>Não</Text>
@@ -41,9 +41,9 @@ export default function ModalCustom({ visible, handleDelete, user, changeModal }
                         <Pressable
                             style={[styles.button, stylesModal.button, stylesModal.buttonSecondary]}
                             onPress={() => {
-                                handleDelete(user.id)
-                                changeModal()
-                                changeColor()
+                                handleDelete(user.id);
+                                changeModal();
+                                changeColor();
                             }}
                         >
                             <Text style={stylesModal.textButton}>Sim</Text>

@@ -73,10 +73,12 @@ export const stylesModal = StyleSheet.create({
   },
   buttonPrimary: {
     borderRightWidth: 0.25,
+    borderTopEndRadius: 0,
     borderBottomLeftRadius: 16
   },
   buttonSecondary: {
     borderLeftWidth: 0.25,
+    borderTopStartRadius: 0,
     borderBottomRightRadius: 16
   },
   textButton: {
