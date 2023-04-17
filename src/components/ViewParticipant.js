@@ -1,11 +1,9 @@
-import { useEffect } from 'react';
 import { Text, View } from 'react-native';
-
 import { styles } from "../styles.js"
 
 import Participants from "./Participants.js"
 
-export default function ViewParticipant({ list, handleDelete }) {
+export default function ViewParticipant({ list, handleModal }) {
     const element = list.length === 0? (
             <Text style={styles.paragraph}>
                 Ninguém chegou no evento ainda? 
@@ -18,7 +16,7 @@ export default function ViewParticipant({ list, handleDelete }) {
                         key={index.toString()} 
                         index={index}
                         name={name} 
-                        handleDelete={handleDelete}    
+                        handleModal={handleModal}    
                     />
                 )) }
             </View>

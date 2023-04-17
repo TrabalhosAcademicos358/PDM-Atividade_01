@@ -2,10 +2,7 @@ import { useState } from 'react';
 import { Modal, View, Text, Pressable } from 'react-native';
 import { styles, stylesModal } from '../styles';
 
-export default function ModalCustom() {
-    const [modalVisible, setModalVisible] = useState(false);
-    const name = "Fabio Abrantes";
-
+export default function ModalCustom({ visible, handleDelete, user, changeModal }) {
     const colorBG = "#131016CC";
     const [colorPage, setColorPage] = useState(colorBG);
 
@@ -18,23 +15,23 @@ export default function ModalCustom() {
         <Modal
             animationType="fade"
             transparent={true}
-            visible={modalVisible}
+            visible={visible}
             onRequestClose={() => {
-                setModalVisible(!modalVisible);
+                changeModal();
                 changeColor()
             }}>
             <View style={[styles.containerCenter, { backgroundColor: colorPage }]}>
                 <View style={stylesModal.modalView}>
                     <View style={stylesModal.textView}>
                         <Text style={[stylesModal.text, stylesModal.textTitle]}>Remover</Text>
-                        <Text style={stylesModal.text}>Remover o {name}?</Text>
+                        <Text style={stylesModal.text}>Remover o {user.name}?</Text>
                     </View>
 
                     <View style={{flexDirection: "row"}}>
                         <Pressable
                             style={[styles.button, stylesModal.button, stylesModal.buttonPrimary]}
                             onPress={() => {
-                                setModalVisible(!modalVisible)
+                                changeModal()
                                 changeColor()
                             }}
                         >
@@ -44,7 +41,8 @@ export default function ModalCustom() {
                         <Pressable
                             style={[styles.button, stylesModal.button, stylesModal.buttonSecondary]}
                             onPress={() => {
-                                setModalVisible(!modalVisible)
+                                handleDelete(user.id)
+                                changeModal()
                                 changeColor()
                             }}
                         >
