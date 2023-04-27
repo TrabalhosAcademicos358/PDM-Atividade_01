@@ -21,6 +21,9 @@ export default function App() {
   ]);
 
   function createFromList(name) {
+    const itemInList = listParticipant.find(item => item === name);
+    if (name.trim() === "" || itemInList) 
+      return null;
     setListParticipant([ ...listParticipant, name ]);
   }
 
