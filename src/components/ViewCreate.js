@@ -1,8 +1,8 @@
-import { View, TextInput, Alert } from 'react-native';
-import { styles } from '../styles.js';
+import { useState } from 'react';
+import { View, TextInput } from 'react-native';
+import { styles, colors } from '../styles.js';
 
 import Button from "./Button.js"
-import { useState } from 'react';
 
 export default function ViewCreate({ handleCreate }) {
     const [name, setName] = useState();
@@ -11,7 +11,7 @@ export default function ViewCreate({ handleCreate }) {
             <TextInput 
                 style={styles.box} 
                 placeholder="Nome do participante" 
-                placeholderTextColor="#6B6B6B"
+                placeholderTextColor={colors.secondary}
                 onChangeText={key => setName(key)}
                 value={name}
             />

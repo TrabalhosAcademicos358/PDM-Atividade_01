@@ -1,9 +1,16 @@
 import { StyleSheet } from "react-native";
 
+export const colors = {
+  background: "#131016",
+  primary: "#FDFCFE",
+  white: "#fff",
+  secondary: "#6B6B6B"
+};
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#131016",
+    backgroundColor: colors.background,
     paddingVertical: 75,
     paddingHorizontal: 24,
     gap: 34
@@ -27,35 +34,35 @@ export const styles = StyleSheet.create({
   },
   date: {
     fontSize: 16,
-    color: "#6B6B6B"
+    color: colors.secondary
   },
   title: {
-    color: "#FDFCFE",
+    color: colors.primary,
     fontWeight: "bold",
     fontSize: 24
   },
   titleSecondary: {
-    color: "#FDFCFE",
+    color: colors.primary,
     fontSize: 20,
     fontWeight: "bold"
   },
   paragraph: {
-    color: "#FDFCFE",
+    color: colors.primary,
     fontSize: 14,
     textAlign: "center",
     marginTop: 28
   },
   box: {
     backgroundColor: "#1F1E25",
-    color: "#fff",
+    color: colors.white,
     borderRadius: 4,
-    width: "83%", // Está uma droga, colocar automatico depois
+    width: "83%",
     paddingLeft: 16,
     height: 56,
     justifyContent: "center"
   },
   button: {
-    color: "#FDFCFE",
+    color: colors.primary,
     height: 56,
     width: 56,
     borderRadius: 4,
